@@ -14,19 +14,19 @@ knitr::opts_chunk$set(echo = TRUE)
 \subsection{PCA}
 
 ```{r}
-
+df.pca = read.csv('dr_pca.csv', header = TRUE)
 ```
 
 \subsection{TSNE}
 
 ```{r}
-df = read.csv('dr_tsne.csv', header = TRUE)
+df.tsne = read.csv('dr_tsne.csv', header = TRUE)
 ```
 
 \subsection{UMAP}
 
 ```{r}
-
+df.umap = read.csv('dr_umap.csv', header = TRUE)
 ```
 
 
