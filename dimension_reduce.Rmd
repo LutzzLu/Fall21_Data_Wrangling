@@ -103,7 +103,25 @@ label.umap = read.table('labels.csv', sep = ',', header=TRUE)
 ```
 
 ```{r}
-data.umap = umap(data.umap[, c(1:20532)])
+data.umap.matrix = as.matrix(data.umap[,2:20532])
+```
+
+```{r}
+data.umap.output = umap(data.umap.matrix)
+```
+
+```{r}
+head(data.umap.output$layout)
+```
+
+```{r}
+dr.umap = data.frame(class = label.umap$Class,
+                     umap1 = data.umap.output$layout[, 1], 
+                     umap2 = data.umap.output$layout[, 2])
+```
+
+```{r}
+write.csv(dr.umap,file="dr_umap.csv",quote=F,row.names = F)
 ```
 
 \section{RANDOM_FOREST}
