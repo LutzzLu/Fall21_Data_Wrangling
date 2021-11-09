@@ -55,16 +55,55 @@ write.csv(dr.pca,file="dr_pca.csv",quote=F,row.names = F)
 
 ```{r}
 library(tsne)
+colors = rainbow(length(unique(label.tsne$Class)))
+names(colors) = unique(label.tsne$Class)
+head(colors)
+```
+
+```{r}
+tsne.out = tsne(data.tsne[,2:20532],k=2,perplexity=50)
+```
+
+```{r}
+dr.tsne = data.frame(class = label.tsne$Class,
+                     tsne1 = tsne.out[, 1],
+                     tsne2 = tsne.out[, 2])
+write.csv(dr.tsne,file="dr_tsne.csv",quote=F,row.names = F)
+```
+
+
+```{r}
+# library(tsne)
 library(Rtsne)
 data.tsne = read.table('data.csv', sep = ',', header=TRUE)
 label.tsne = read.table('labels.csv', sep = ',', header=TRUE)
 ```
 
+```{r}
+# data.tsne = data.tsne[, -1]
+# data.tsne.matrix = as.matrix(data.tsne[,1:20532])
+# head(data.tsne.matrix)
+```
+
+```{r}
+set.seed(42)
+Rtsne.out <- Rtsne(data.tsne[,2:20532],dims=2, perplexity=30)
+dr.tsne = data.frame(class = label.tsne$Class,
+                     tsne1 = Rtsne.out$Y[, 1],
+                     tsne2 = Rtsne.out$Y[, 2])
+write.csv(dr.tsne,file="dr_Rtsne.csv",quote=F,row.names = F)
+```
 
 \section{UMAP}
 
 ```{r}
+library(umap)
+data.umap = read.table('data.csv', sep = ',', header=TRUE)
+label.umap = read.table('labels.csv', sep = ',', header=TRUE)
+```
 
+```{r}
+data.umap = umap(data.umap[, c(1:20532)])
 ```
 
 \section{RANDOM_FOREST}
