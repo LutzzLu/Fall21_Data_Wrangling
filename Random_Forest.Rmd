@@ -14,6 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 \subsection{PCA}
 
 ```{r}
+library(lutzqbsdatawrangling)
+```
+
+```{r}
 df.pca = read.csv('dr_pca.csv', header = TRUE)
 ```
 
