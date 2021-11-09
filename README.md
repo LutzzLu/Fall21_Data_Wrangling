@@ -1,4 +1,4 @@
-# data_wrangling
+# data_wrangling Genetics
 
 ## This is the introduction part.
 
@@ -11,3 +11,17 @@ And for the DBC Dashboard.Rmd, it's a code example from Mina. Shout out to Mina!
 In the Random_Forest.Rmd, I use three different method dimension reduced datasets to train random forest model.
 
 And the interactive_viz.Rmd is the data viz dashboard of mine.
+
+## Describtion
+
+## Prerequisites
+
+## Installation
+
+## Contributing
+
+## License
+
+## Citation
+
+## Contact
