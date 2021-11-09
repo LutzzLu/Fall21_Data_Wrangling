@@ -9,9 +9,18 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-\section{PCA}
+```{r}
+library(ggbiplot)
+library(ggfortify)
+library(factoextra)
+library(FactoMineR)
+library(tsne)
+library(umap)
+library(pROC)
+library(randomForest)
+```
 
-...
+\section{PCA}
 
 ```{r}
 
