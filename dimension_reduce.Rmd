@@ -66,7 +66,9 @@ tsne.out = tsne(data.tsne[,2:20532],k=2,perplexity=50)
 
 Please don't run this code on your own computer. It require really large computational resource.
 
-Run this on HPC or other.
+Run this on HPC or other. 
+
+\textbf{IF RUN THIS ON HPC, it takes MORE THAN 2 HOURS!!}
 
 ```{r}
 dr.tsne = data.frame(class = label.tsne$Class,

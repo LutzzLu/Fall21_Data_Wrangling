@@ -9,10 +9,6 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-
-```
-
 \section{RANDOM_FOREST}
 
 \subsection{PCA}
@@ -24,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 \subsection{TSNE}
 
 ```{r}
-
+df = read.csv('dr_tsne.csv', header = TRUE)
 ```
 
 \subsection{UMAP}
