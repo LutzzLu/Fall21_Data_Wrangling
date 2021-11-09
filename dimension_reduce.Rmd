@@ -1,0 +1,50 @@
+---
+title: "dimension_reduce"
+author: "Yunrui Lu"
+date: "11/06/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\section{PCA}
+
+```{r}
+
+```
+
+\section{TSNE}
+
+```{r}
+
+```
+
+\section{UMAP}
+
+```{r}
+
+```
+
+\section{RANDOMFOREST}
+
+\subsection{PCA}
+
+```{r}
+
+```
+
+\subsection{TSNE}
+
+```{r}
+
+```
+
+\subsection{UMAP}
+
+```{r}
+
+```
+
+
