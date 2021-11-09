@@ -10,7 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-library(ggbiplot)
 library(ggfortify)
 library(factoextra)
 library(FactoMineR)
@@ -20,16 +19,44 @@ library(pROC)
 library(randomForest)
 ```
 
+```{r}
+# raw.data = read.table('data.csv', sep = ',', header=TRUE)
+# raw.label = read.table('labels.csv', sep = ',', header=TRUE)
+```
+
 \section{PCA}
 
 ```{r}
+data.pca = read.table('data.csv', sep = ',', header=TRUE)
+label.pca = read.table('labels.csv', sep = ',', header=TRUE)
+```
 
+```{r}
+com.pca <- prcomp(data.pca[,2:20532], center = TRUE)
+```
+
+```{r}
+library(ggbiplot)
+ggscreeplot(com.pca)
+```
+
+```{r}
+test = com.pca$x
+dr.pca = data.frame(class = label.pca$Class,
+                    PC1 = test[, 1],
+                    PC2 = test[, 2])
+```
+
+```{r}
+write.csv(dr.pca,file="dr_pca.csv",quote=F,row.names = F)
 ```
 
 \section{TSNE}
 
 ```{r}
-
+library(tsne)
+data.tsne = read.table('data.csv', sep = ',', header=TRUE)
+label.tsne = read.table('labels.csv', sep = ',', header=TRUE)
 ```
 
 \section{UMAP}
