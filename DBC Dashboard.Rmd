@@ -1,0 +1,84 @@
+---
+title: "DBC Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(dplyr)
+library(plotly)
+```
+
+```{r data}
+data <- read.csv("/Users/mirjanastevanovic/Desktop/Second Year/Summer/DBC/DBC Dashboard/Career_Interests_2021.csv",header = FALSE)
+colnames(data)[1] <- "Category"
+colnames(data)[2] <- "2021"
+
+#rownames(data) <- data[,1]
+#data[,1] <- NULL
+
+#make up data for next year
+data$"2022"<- c(30,13,10,15,10,9,16,3)
+years <- c("2021","2022")
+
+#https://communications.dartmouth.edu/visual-identity/design-elements/color-palette
+colors <- c('rgb(0,105,62)', 'rgb(18,49,43)', 'rgb(155,200,235)', 'rgb(0,60,115)', 'rgb(165,215,95)',
+            'rgb(245,220,105)','rgb(255,160,15)','rgb(157,22,46)')
+
+long <- reshape(data, 
+        direction = "long",
+        varying = list(names(data)[2:3]),
+        v.names = "Count",
+        timevar = "Year",
+        times = c("2021","2022"))
+long$id <- NULL
+rownames(long) <- 1:16
+```
+
+Column {.sidebar data-width=200}
+-----------------------------------------------------------------------
+
+```{r}
+selectInput("year", label = "Select Year:", choices = years)
+selectInput("comparison_year", label = "Select Year for Comparison:", choices = years)
+```
+
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Pie Chart Showing the Breakdown of Student Career Interests 
+
+```{r}
+renderPlotly({
+   plot_ly(data,
+              labels = ~Category,
+              values = ~data[[input$year]],
+              type = "pie",showlegend = FALSE,
+           textposition = 'inside',textinfo = 'percent', hoverinfo = "label",
+           marker = list(colors = colors)) %>%
+  layout(title = "",
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+})
+```
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Bar Chart Comparing Student Career Interests between Two Years
+
+```{r}
+renderPlotly({
+  plot_ly(data, x = ~Category, y = ~data[[input$year]], type = 'bar',hoverinfo = "x+y", name = input$year)%>%
+    add_trace(y = ~data[[input$comparison_year]],name = input$comparison_year) %>% 
+    layout(xaxis = list(title = "",showticklabels=FALSE), yaxis = list(title = ""))
+})
+```
+
+
