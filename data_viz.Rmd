@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+author: "Yunrui Lu"
+date: "11/9/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\section{Data Viz}
+
+\subsection{PCA}
+
+```{r}
+dr.pca = read.csv('dr_pca.csv', header = TRUE)
+```
+
+```{r}
+library(ggplot2)
+# tsne_plot <- data.frame(x =dr.pca$PC1, y = dr.pca$PC2, col = iris_unique$Species)
+ggplot(dr.pca) + geom_point(aes(x=PC1,y=PC2, color=class))
+```
