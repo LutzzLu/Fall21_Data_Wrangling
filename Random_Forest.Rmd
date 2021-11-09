@@ -1,0 +1,36 @@
+---
+title: "Random_Forest"
+author: "Yunrui Lu"
+date: "11/9/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+```
+
+\section{RANDOM_FOREST}
+
+\subsection{PCA}
+
+```{r}
+
+```
+
+\subsection{TSNE}
+
+```{r}
+
+```
+
+\subsection{UMAP}
+
+```{r}
+
+```
+
+
