@@ -55,6 +55,7 @@ write.csv(dr.pca,file="dr_pca.csv",quote=F,row.names = F)
 
 ```{r}
 library(tsne)
+library(Rtsne)
 data.tsne = read.table('data.csv', sep = ',', header=TRUE)
 label.tsne = read.table('labels.csv', sep = ',', header=TRUE)
 ```
