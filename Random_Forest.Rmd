@@ -11,10 +11,54 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \section{RANDOM_FOREST}
 
+```{r}
+library(randomForest)
+```
+
 \subsection{PCA}
 
 ```{r}
 df.pca = read.csv('dr_pca.csv', header = TRUE)
+summary(df.pca)
+df.pca$class = as.factor(df.pca$class)
+```
+
+```{r}
+ind = sample(2, nrow(df.pca), replace = TRUE, prob = c(0.7, 0.3))
+train = df.pca[ind == 1, ]
+test = df.pca[ind == 2, ]
+```
+
+```{r}
+set.seed(100)
+ntree_fit<-randomForest(class~.,data=train,mtry=2,ntree=1000)
+plot(ntree_fit)
+```
+
+```{r}
+set.seed(100)
+rf.pca = randomForest(class~., data = train, mtry = 2, ntree = 600)
+rf.pca
+```
+
+```{r}
+varImpPlot(rf.pca)
+```
+
+```{r}
+pred1<-predict(rf.pca,data=train)
+Freq1<-table(pred1,train$class)
+sum(diag(Freq1))/sum(Freq1)
+```
+
+```{r}
+# pred1<-predict(rf.pca,data=test)
+# Freq1<-table(pred1,test$class)
+# sum(diag(Freq1))/sum(Freq1)
+```
+
+```{r}
+plot(margin(rf.pca,test$class),main='ss')
 ```
 
 \subsection{TSNE}
