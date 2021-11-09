@@ -38,7 +38,7 @@ library(randomForest)
 
 ```
 
-\section{RANDOMFOREST}
+\section{RANDOM_FOREST}
 
 \subsection{PCA}
 
