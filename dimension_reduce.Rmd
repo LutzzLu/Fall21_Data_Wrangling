@@ -59,6 +59,8 @@ data.tsne = read.table('data.csv', sep = ',', header=TRUE)
 label.tsne = read.table('labels.csv', sep = ',', header=TRUE)
 ```
 
+
+
 \section{UMAP}
 
 ```{r}
