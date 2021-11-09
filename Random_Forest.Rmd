@@ -66,12 +66,60 @@ plot(margin(rf.pca,test$class),main='ss')
 
 ```{r}
 df.tsne = read.csv('dr_tsne.csv', header = TRUE)
+df.tsne$class = as.factor(df.tsne$class)
+```
+
+```{r}
+ind = sample(2, nrow(df.tsne), replace = TRUE, prob = c(0.7, 0.3))
+train = df.tsne[ind == 1, ]
+test = df.tsne[ind == 2, ]
+```
+
+```{r}
+set.seed(100)
+ntree_fit<-randomForest(class~.,data=train,mtry=2,ntree=1000)
+plot(ntree_fit)
+```
+
+```{r}
+set.seed(100)
+rf.tsne = randomForest(class~., data = train, mtry = 2, ntree = 150)
+rf.tsne
+```
+
+```{r}
+pred1<-predict(rf.tsne,data=train)
+Freq1<-table(pred1,train$class)
+sum(diag(Freq1))/sum(Freq1)
 ```
 
 \subsection{UMAP}
 
 ```{r}
 df.umap = read.csv('dr_umap.csv', header = TRUE)
+df.umap$class = as.factor(df.umap$class)
 ```
 
+```{r}
+ind = sample(2, nrow(df.umap), replace = TRUE, prob = c(0.7, 0.3))
+train = df.umap[ind == 1, ]
+test = df.umap[ind == 2, ]
+```
 
+```{r}
+set.seed(100)
+ntree_fit<-randomForest(class~.,data=train,mtry=2,ntree=1000)
+plot(ntree_fit)
+```
+
+```{r}
+set.seed(100)
+rf.umap = randomForest(class~., data = train, mtry = 2, ntree = 50)
+rf.umap
+```
+
+```{r}
+pred1<-predict(rf.umap,data=train)
+Freq1<-table(pred1,train$class)
+sum(diag(Freq1))/sum(Freq1)
+```
