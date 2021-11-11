@@ -47,8 +47,10 @@ varImpPlot(rf.pca)
 ```
 
 ```{r}
-pred1<-predict(rf.pca,data=train)
+pred1<-predict(rf.pca,data=test)
+# print(pred1)
 Freq1<-table(pred1,train$class)
+print(Freq1)
 sum(diag(Freq1))/sum(Freq1)
 ```
 
