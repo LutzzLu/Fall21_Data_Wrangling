@@ -38,7 +38,7 @@ plot(ntree_fit)
 
 ```{r}
 set.seed(100)
-rf.pca = randomForest(class~., data = train, mtry = 2, ntree = 600)
+rf.pca = randomForest(class~., data = train, mtry = 2, ntree = 500)
 rf.pca
 ```
 
@@ -83,7 +83,7 @@ plot(ntree_fit)
 
 ```{r}
 set.seed(100)
-rf.tsne = randomForest(class~., data = train, mtry = 2, ntree = 150)
+rf.tsne = randomForest(class~., data = train, mtry = 2, ntree = 500)
 rf.tsne
 ```
 
@@ -114,7 +114,7 @@ plot(ntree_fit)
 
 ```{r}
 set.seed(100)
-rf.umap = randomForest(class~., data = train, mtry = 2, ntree = 50)
+rf.umap = randomForest(class~., data = train, mtry = 2, ntree = 500)
 rf.umap
 ```
 
