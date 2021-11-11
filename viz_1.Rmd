@@ -1,0 +1,218 @@
+---
+title: "Rproject"
+author: "M & M"
+date: "11/3/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+setwd("~/Desktop/QBS Fall 21'/QBS 181/Final Project/TCGA-PANCAN-HiSeq-801x20531")
+###############################scale##################################
+#remove first column to convert to dataframe
+
+View(data.csv)
+dat<- as.data.frame(dat[,-1]) 
+```
+
+```{r}
+setwd("~/Desktop/QBS Fall 21'/QBS 181/Final Project")
+########################################PCA########################################
+
+pca=read.csv("pca_dimension_reduced.csv",header=TRUE,sep=",")
+ 
+colnames(pca)=c("num","d1","d2","target")
+View(pca)
+```
+
+```{r}
+plot(pca$d1, pca$d2)
+```
+```{r}
+library(dplyr)
+pca_PRAD <- pca %>%
+  filter(target == "PRAD")
+#pca_PRAD
+
+pca_COAD <- pca %>%
+  filter(target == "COAD")
+#pca_COAD
+
+pca_KIRC <- pca %>%
+  filter(target == "KIRC")
+#pca_KIRC
+
+pca_LUAD <- pca %>%
+  filter(target == "LUAD")
+#pca_LUAD
+
+pca_BRCA <- pca %>%
+  filter(target == "BRCA")
+#pca_BRCA
+```
+ 
+```{r}
+plot(pca$d1, pca$d2)
+plot(pca_BRCA$d1, pca_BRCA$d2, 
+     xlim=c(-100, 240), 
+     ylim=c(-150,150),
+     pch = 20,
+     main="Cancer Genome - PCA", 
+     xlab="PC1", 
+     ylab="PC2")
+points(pca_KIRC$d1, pca_KIRC$d2,col="red", pch=20)
+points(pca_COAD$d1, pca_COAD$d2,col="blue", pch=20) 
+points(pca_LUAD$d1, pca_LUAD$d2,col="green", pch=20) 
+points(pca_PRAD$d1, pca_PRAD$d2,col="yellow",pch=20)
+
+legend("right",
+       legend = c("BRCA", "KIRC", "COAD", "LUAD", "PRAD"),
+       col = c("black", "red", "blue", "green", "yellow"),
+       pch = c(20, 20, 20, 20, 20)
+)
+```
+ 
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+
+########################################UMAP########################################
+
+umap=read.csv("umap_dimension_reduced.csv",header=TRUE,sep=",")
+ 
+colnames(umap)=c("num","d1","d2","target")
+
+View(umap)
+
+library(dplyr)
+umap_PRAD <- umap %>%
+  filter(target == "PRAD")
+#umap_PRAD
+
+umap_COAD <- umap %>%
+  filter(target == "COAD")
+#tsne_COAD
+
+umap_KIRC <- umap %>%
+  filter(target == "KIRC")
+#umap_KIRC
+
+umap_LUAD <- umap %>%
+  filter(target == "LUAD")
+#umap_LUAD
+
+umap_BRCA <- umap %>%
+  filter(target == "BRCA")
+#umap_BRCA
+
+plot(umap$d1, umap$d2)
+plot(umap_BRCA$d1, umap_BRCA$d2, 
+     xlim=c(-10, 20), 
+     ylim=c(-150,150),
+     pch = 20,
+     main="Cancer Genome - UMAP", 
+     xlab="C1", 
+     ylab="C2")
+points(umap_KIRC$d1, umap_KIRC$d2,col="red", pch=20)
+points(umap_COAD$d1, umap_COAD$d2,col="blue", pch=20) 
+points(umap_LUAD$d1, umap_LUAD$d2,col="green", pch=20) 
+points(umap_PRAD$d1, umap_PRAD$d2,col="yellow",pch=20)
+
+legend("right",
+       legend = c("BRCA", "KIRC", "COAD", "LUAD", "PRAD"),
+       col = c("black", "red", "blue", "green", "yellow"),
+       pch = c(20, 20, 20, 20, 20)
+)
+```
+```{r}
+
+########################################TSNE########################################
+
+tsne=read.csv("tsne_dimension_reduced.csv",header=TRUE,sep=",")
+ 
+colnames(tsne)=c("num","d1","d2","target")
+
+
+library(dplyr)
+tsne_PRAD <- tsne %>%
+  filter(target == "PRAD")
+#tsne_PRAD
+
+tsne_COAD <- tsne %>%
+  filter(target == "COAD")
+#tsne_COAD
+
+tsne_KIRC <- tsne %>%
+  filter(target == "KIRC")
+#tsne_KIRC
+
+tsne_LUAD <- tsne %>%
+  filter(target == "LUAD")
+#tsne_LUAD
+
+tsne_BRCA <- tsne %>%
+  filter(target == "BRCA")
+#tsne_BRCA
+
+plot(tsne$d1, tsne$d2)
+plot(tsne_BRCA$d1, tsne_BRCA$d2, 
+     xlim=c(-75, 240), 
+     ylim=c(-150,150),
+     pch = 20,
+     main="Cancer Genome - TSNE", 
+     xlab="C1", 
+     ylab="C2")
+points(tsne_KIRC$d1, tsne_KIRC$d2,col="red", pch=20)
+points(tsne_COAD$d1, tsne_COAD$d2,col="blue", pch=20) 
+points(tsne_LUAD$d1, tsne_LUAD$d2,col="green", pch=20) 
+points(tsne_PRAD$d1, tsne_PRAD$d2,col="yellow",pch=20)
+
+legend("right",
+       legend = c("BRCA", "KIRC", "COAD", "LUAD", "PRAD"),
+       col = c("black", "red", "blue", "green", "yellow"),
+       pch = c(20, 20, 20, 20, 20)
+)
+```
+
+```{r}
+#Multiple Testing
+#library(multtest)
+#library(data.table)
+#setwd("~/Desktop/QBS Fall 21'/QBS 181/Final Project/TCGA-PANCAN-HiSeq-801x20531")
+#dat <- fread("data.csv")
+#dim(dat)
+
+#m = nrow(dat)
+#n = ncol(dat)
+#aml.sub = which(dat.cl == 1)
+#all.sub = which(dat.cl == 0)
+
+#p.vals = apply(dat, 1, function(x) {
+#  return (t.test(x[aml.sub], x[all.sub],
+ #                alternative="two.sided")$p.value)})
+#hist(p.vals,breaks=40)
+
+#names(p.vals) = dat[,2]
+
+#sort(p.vals,decreasing=F)[1:5]
+
+#alpha=0.05
+
+#bonf.p.vals = p.adjust(p.vals, method="bonferroni")
+
+#(R.bonf = length(which(bonf.p.vals <= alpha)))
+
+```
+
+
