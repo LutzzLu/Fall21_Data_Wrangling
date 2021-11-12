@@ -38,12 +38,12 @@ plot(ntree_fit)
 
 ```{r}
 set.seed(100)
-rf.pca = randomForest(class~., data = train, mtry = 2, ntree = 500)
+rf.pca = randomForest(class~., data = train, mtry = 2, ntree = 250)
 rf.pca
 ```
 
 ```{r}
-varImpPlot(rf.pca)
+# varImpPlot(rf.pca)
 ```
 
 ```{r}
@@ -61,7 +61,7 @@ sum(diag(Freq1))/sum(Freq1)
 ```
 
 ```{r}
-plot(margin(rf.pca,test$class),main='ss')
+# plot(margin(rf.pca,test$class),main='ss')
 ```
 
 \subsection{TSNE}
@@ -85,7 +85,7 @@ plot(ntree_fit)
 
 ```{r}
 set.seed(100)
-rf.tsne = randomForest(class~., data = train, mtry = 2, ntree = 500)
+rf.tsne = randomForest(class~., data = train, mtry = 2, ntree = 100)
 rf.tsne
 ```
 
