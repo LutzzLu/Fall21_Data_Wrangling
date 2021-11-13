@@ -40,7 +40,7 @@ output = dimensionreduce(data, label)
 
 ```{r}
 data.pca = read.table('package_test.csv', sep = ',', header = T)
-viz(data.pca)
+viz(data.pca, method = 'densityplot')
 # viz.ggplot(data.pca)
 ```
 
