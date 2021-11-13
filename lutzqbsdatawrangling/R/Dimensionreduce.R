@@ -13,7 +13,7 @@ dimensionreduce = function(data, label){
   dr.tsne = data.frame(class = label[, 1], dr1 = data.tsne[, 1], dr2 = data.tsne[, 2])
   data.umap.matrix = as.matrix(data)
   data.umap = umap(data.umap.matrix)
-  dr.umap = data.frame(class = label[, 1], dr1 = data.umap[, 1], dr2 = data.umap[, 2])
+  dr.umap = data.frame(class = label[, 1], dr1 = data.umap$layout[, 1], dr2 = data.umap$layout[, 2])
 
   set.seed(100)
   dr.pca$class = as.factor(dr.pca$class)
