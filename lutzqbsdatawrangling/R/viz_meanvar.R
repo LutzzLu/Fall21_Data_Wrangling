@@ -21,7 +21,7 @@ viz.meanvar <- function(data) {
   }
   measure=data.frame(T,mean1,mean2,var1,var2)
   head(measure)
-  return (measre)
+  return (measure)
   # plot(density(data$dr_1))
   # lines(density(data$dr_2),col="red")
 }
