@@ -1,4 +1,4 @@
-viz <- function(dr.data) {
+viz.ggplot <- function(dr.data) {
   library(ggplot2)
   pca=read.csv("dr_pca.csv",header=TRUE,sep=",")
   # colnames(pca)=c("num","PCA_1","PCA_2","target")
