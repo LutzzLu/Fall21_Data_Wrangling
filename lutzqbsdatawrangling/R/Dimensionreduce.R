@@ -1,7 +1,3 @@
-library(tsne)
-library(umap)
-library(randomForest)
-
 dimensionreduce = function(data, label){
   library(tsne)
   library(umap)
@@ -19,7 +15,7 @@ dimensionreduce = function(data, label){
   dr.pca$class = as.factor(dr.pca$class)
   dr.tsne$class = as.factor(dr.tsne$class)
   dr.umap$class = as.factor(dr.umap$class)
-  ind = sample(2, nrow(df.pca), replace = TRUE, prob = c(0.7, 0.3))
+  ind = sample(2, nrow(dr.pca), replace = TRUE, prob = c(0.7, 0.3))
   dr.pca.train = dr.pca[ind == 1, ]
   dr.pca.test = dr.pca[ind == 2, ]
   dr.tsne.train = dr.tsne[ind == 1, ]
