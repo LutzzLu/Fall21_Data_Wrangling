@@ -13,8 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(ggplot2)
-pca=read.csv("pca_dimension_reduced.csv",header=TRUE,sep=",")
-colnames(pca)=c("num","PCA_1","PCA_2","target")
+# pca=read.csv("dimension_reduced_data_python/pca_dimension_reduced.csv",header=TRUE,sep=",")
+# colnames(pca)=c("num","PCA_1","PCA_2","target")
+pca=read.csv("dr_pca.csv",header=TRUE,sep=",")
+colnames(pca)=c("target","PCA_1","PCA_2")
 T=unique(pca$target)
 tar_cols<-c("#de8f6e","#aac0aa","#2a1a1f","#bb0a21","#087e8b")
 names(tar_cols)<-levels(pca$target)
@@ -41,8 +43,8 @@ lines(density(pca$PCA_2),col="red")
 ```
 
 ```{r}
-tsne=read.csv("tsne_dimension_reduced.csv",header=TRUE,sep=",")
-colnames(tsne)=c("num","tSNE_1","tSNE_2","target")
+tsne=read.csv("dr_tsne.csv",header=TRUE,sep=",")
+colnames(tsne)=c("target","tSNE_1","tSNE_2")
 
 tar_cols<-c("#de8f6e","#aac0aa","#2a1a1f","#bb0a21","#087e8b")
 names(tar_cols)<-levels(tsne$target)
@@ -71,8 +73,8 @@ lines(density(tsne$tSNE_2),col="red")
 
 
 ```{r}
-umap=read.csv("umap_dimension_reduced.csv",header=TRUE,sep=",")
-colnames(umap)=c("num","UMAP_1","UMAP_2","target")
+umap=read.csv("dr_umap.csv",header=TRUE,sep=",")
+colnames(umap)=c("target","UMAP_1","UMAP_2")
 
 
 tar_cols<-c("#de8f6e","#aac0aa","#2a1a1f","#bb0a21","#087e8b")
