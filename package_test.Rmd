@@ -32,11 +32,14 @@ label = data.frame(species = iris[, 5])
 ```
 
 ```{r}
+
 output = dimensionreduce(data, label)
 ```
 
 
+
 ```{r}
+# data.pca = read.table('package_test.csv')
 viz.ggplot(output)
 ```
 

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(ggplot2)
-pca=read.csv("pca_dimension_reduced.csv",header=TRUE,sep=",")
+pca=read.csv("dimension_reduced_data_python/pca_dimension_reduced.csv",header=TRUE,sep=",")
 colnames(pca)=c("num","PCA_1","PCA_2","target")
 T=unique(pca$target)
 tar_cols<-c("#de8f6e","#aac0aa","#2a1a1f","#bb0a21","#087e8b")
