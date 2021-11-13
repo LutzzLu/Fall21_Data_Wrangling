@@ -37,6 +37,6 @@ output = dimensionreduce(data, label)
 
 
 ```{r}
-viz(output)
+viz.ggplot(output)
 ```
 

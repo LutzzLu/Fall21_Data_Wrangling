@@ -30,7 +30,6 @@ viz.ggplot <- function(pca) {
   ggplot(pca,aes(x=`PCA_1`,y=`PCA_2`,color=target))+
     geom_point()+ 
     labs(x="PCA_1",y="PCA_2")+
-    scale_color_manual(values=tar_cols)+ 
     theme_classic()
 
   pca_mean1=c()
