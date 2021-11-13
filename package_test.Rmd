@@ -39,7 +39,7 @@ output = dimensionreduce(data, label)
 
 
 ```{r}
-# data.pca = read.table('package_test.csv')
-viz.ggplot(output)
+data.pca = read.table('package_test.csv', sep = ',', header = T)
+viz.ggplot(data.pca)
 ```
 
