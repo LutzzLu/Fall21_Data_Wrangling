@@ -36,7 +36,7 @@ viz.ggplot <- function(pca) {
   pca_mean2=c()
   pca_var1=c()
   pca_var2=c()
-  for(i in 1:5){
+  for(i in 1:length(T)){
     pca_mean1[i]=mean(pca[which(pca$target==T[i]),]$PCA_1)
     pca_mean2[i]=mean(pca[which(pca$target==T[i]),]$PCA_2)
     pca_var1[i]=var(pca[which(pca$target==T[i]),]$PCA_1)
