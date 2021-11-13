@@ -26,13 +26,17 @@ dat<- as.data.frame(dat[,-1])
 ```
 
 ```{r}
-setwd("~/Desktop/QBS Fall 21'/QBS 181/Final Project")
+# setwd("~/Desktop/QBS Fall 21'/QBS 181/Final Project")
 ########################################PCA########################################
 
-pca=read.csv("pca_dimension_reduced.csv",header=TRUE,sep=",")
+# pca=read.csv("pca_dimension_reduced.csv",header=TRUE,sep=",")
+#  
+# colnames(pca)=c("num","d1","d2","target")
+
+pca=read.csv("dr_pca.csv",header=TRUE,sep=",")
  
-colnames(pca)=c("num","d1","d2","target")
-View(pca)
+colnames(pca)=c("target","d1","d2")
+# View(pca)
 ```
 
 ```{r}
@@ -89,11 +93,15 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 ########################################UMAP########################################
 
-umap=read.csv("umap_dimension_reduced.csv",header=TRUE,sep=",")
- 
-colnames(umap)=c("num","d1","d2","target")
+# umap=read.csv("umap_dimension_reduced.csv",header=TRUE,sep=",")
+#  
+# colnames(umap)=c("num","d1","d2","target")
 
-View(umap)
+umap=read.csv("dr_umap.csv",header=TRUE,sep=",")
+ 
+colnames(umap)=c("target","d1","d2")
+
+# View(umap)
 
 library(dplyr)
 umap_PRAD <- umap %>%
@@ -139,9 +147,13 @@ legend("right",
 
 ########################################TSNE########################################
 
-tsne=read.csv("tsne_dimension_reduced.csv",header=TRUE,sep=",")
+# tsne=read.csv("tsne_dimension_reduced.csv",header=TRUE,sep=",")
+#  
+# colnames(tsne)=c("num","d1","d2","target")
+
+tsne=read.csv("dr_tsne.csv",header=TRUE,sep=",")
  
-colnames(tsne)=c("num","d1","d2","target")
+colnames(tsne)=c("target","d1","d2")
 
 
 library(dplyr)
