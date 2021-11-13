@@ -1,4 +1,4 @@
-viz.ggplot <- function(data, method = 'ggplot') {
+viz <- function(data, method = 'ggplot') {
   library(ggplot2)
   colnames(data)=c("target","dr_1","dr_2")
   T=unique(data$target)
