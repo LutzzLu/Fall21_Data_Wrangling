@@ -34,3 +34,9 @@ label = data.frame(species = iris[, 5])
 ```{r}
 output = dimensionreduce(data, label)
 ```
+
+
+```{r}
+viz(output)
+```
+
