@@ -3,6 +3,9 @@ library(umap)
 library(randomForest)
 
 dimensionreduce = function(data, label){
+  library(tsne)
+  library(umap)
+  library(randomForest)
   data.pca = prcomp(data, center = TRUE)
   data.pca_1 = data.pca$x
   dr.pca = data.frame(class = label[,1], dr1 = data.pca_1[, 1], dr2 = data.pca_1[, 2])
