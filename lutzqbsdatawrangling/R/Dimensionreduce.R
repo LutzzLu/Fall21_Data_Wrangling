@@ -4,7 +4,7 @@ library(randomForest)
 
 dimensionreduce = function(data, label){
   data.pca = prcomp(data, center = TRUE)
-  dr.pca_1 = data.pca$x
+  data.pca_1 = data.pca$x
   dr.pca = data.frame(class = label[,1], dr1 = data.pca_1[, 1], dr2 = data.pca_1[, 2])
   data.tsne = tsne(data, k=2, perplexity=50)
   dr.tsne = data.frame(class = label[, 1], dr1 = data.tsne[, 1], dr2 = data.tsne[, 2])

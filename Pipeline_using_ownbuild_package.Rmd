@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-# devtools::install_github("LutzzLu/data_wrangling/lutzqbsdatawrangling")
+devtools::install_github("LutzzLu/data_wrangling/lutzqbsdatawrangling")
 library(lutzqbsdatawrangling)
 # hello()
 ```
