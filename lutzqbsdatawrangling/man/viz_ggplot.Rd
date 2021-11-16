@@ -2,7 +2,7 @@
 \alias{viz.ggplot}
 \title{generate a scatter plot for your dataset}
 \usage{
-viz(data)
+viz。ggplot(data)
 }
 \description{
 In this function, there are only one argument, which is data.
