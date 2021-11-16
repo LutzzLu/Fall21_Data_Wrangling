@@ -18,7 +18,6 @@ label
 Only contains the label column, which means it should be only one column, no data! And make sure its rows are matched with data, and make sure it's in dataframe type.
 }
 \examples{
-library(datasets)
 data(iris)
 data = iris[, 1:4]
 label = data.frame(species = iris[, 5])
