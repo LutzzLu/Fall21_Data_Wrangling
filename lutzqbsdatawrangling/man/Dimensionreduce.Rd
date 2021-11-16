@@ -1,12 +1,18 @@
-\name{hello}
-\alias{hello}
-\title{Hello, World!}
+\name{dimensionreduce}
+\alias{dimensionreduce}
+\title{Reduce dimensions and return the best by testing accuracy}
 \usage{
-hello()
+dimensionreduce(data, label)
+}
+\Arguments{
+data
+
+Only contains the data columns that you want to reduce their dimensions, no label! And make sure it's in dataframe type.
+
+label
+
+Only contains the label column, which means it should be only one column, no data! And make sure its rows are matched with data, and make sure it's in dataframe type.
 }
 \description{
-Prints 'Hello, world!'.
-}
-\examples{
-hello()
+For this function, you need to input 
 }
