@@ -32,15 +32,13 @@ label = data.frame(species = iris[, 5])
 ```
 
 ```{r}
-
 output = dimensionreduce(data, label)
 ```
 
 
 
 ```{r}
-data.pca = read.table('package_test.csv', sep = ',', header = T)
-viz(data.pca, method = 'densityplot')
-# viz.ggplot(data.pca)
+data = read.table('package_test.csv', sep = ',', header = T)
+viz(data, method = 'ggplot')
 ```
 
