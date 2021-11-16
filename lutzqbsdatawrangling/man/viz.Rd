@@ -1,6 +1,6 @@
-\name{hello}
-\alias{hello}
-\title{Hello, World!}
+\name{viz}
+\alias{viz}
+\title{do all viz work}
 \usage{
 hello()
 }
