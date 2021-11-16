@@ -1,11 +1,10 @@
 Package: lutzqbsdatawrangling
 Type: Package
-Title: Reduce the gene data dimension and give basic data visualization (Title Case)
+Title: Dimension reduce and visualization
 Version: 0.1.0
 Author: Lutz Lu(Yunrui Lu)
 Maintainer: The package maintainer <yunrui.lu.gr@dartmouth.edu>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Reduce the gene data dimension and give basic data visualization
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
