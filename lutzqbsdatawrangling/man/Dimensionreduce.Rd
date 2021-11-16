@@ -4,7 +4,7 @@
 \usage{
 dimensionreduce(data, label)
 }
-\Arguments{
+\arguments{
 data
 
 Only contains the data columns that you want to reduce their dimensions, no label! And make sure it's in dataframe type.
