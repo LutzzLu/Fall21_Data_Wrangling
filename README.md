@@ -2,6 +2,7 @@
 
 ## Describtion
 
+
 ## Prerequisites
 R
 
@@ -13,10 +14,6 @@ Package "LutzzLu/data_wrangling/lutzqbsdatawrangling"
 devtools::install_github("LutzzLu/data_wrangling/lutzqbsdatawrangling")
 
 library(lutzqbsdatawrangling)
-
-## Contributing
-
-## Citation
 
 ## Contact
 Yunrui.Lu.GR@Dartmouth.edu
