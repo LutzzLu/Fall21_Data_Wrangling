@@ -1,4 +1,4 @@
-# data wrangling Genetics
+# Genetics(Data Wrangling)
 
 ## Describtion
 In this project, we have the types of tumors as labels and gene data with the name of each RNA sequence. The main porpose is to predict labels for new genes by applying the model we built with existing dataset. 
