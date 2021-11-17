@@ -38,7 +38,8 @@ output = dimensionreduce(data, label)
 
 
 ```{r}
-data = read.table('package_test.csv', sep = ',', header = T)
-viz(data, method = 'ggplot')
+# data = read.table('package_test.csv', sep = ',', header = T)
+# viz(data, method = 'ggplot')
+viz(output, method = 'ggplot')
 ```
 
