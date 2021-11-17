@@ -4,9 +4,15 @@
 
 ## Prerequisites
 R
+
 R.Studio
 
+Package "LutzzLu/data_wrangling/lutzqbsdatawrangling"
+
 ## Installation
+devtools::install_github("LutzzLu/data_wrangling/lutzqbsdatawrangling")
+
+library(lutzqbsdatawrangling)
 
 ## Contributing
 
