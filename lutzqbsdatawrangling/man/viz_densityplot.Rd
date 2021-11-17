@@ -14,6 +14,6 @@ data(iris)
 data = iris[, 1:4]
 label = data.frame(species = iris[, 5])
 output = dimensionreduce(data, label)
-data = data.frame(label = species = iris[, 5], dr_1 = output[, 1], dr_2 = output[, 2])
+data = data.frame(label = iris[, 5], dr_1 = output[, 1], dr_2 = output[, 2])
 viz.densityplot(data)
 }
