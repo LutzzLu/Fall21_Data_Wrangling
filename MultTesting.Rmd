@@ -1,0 +1,92 @@
+---
+title: "QBS181_MultipleTesting"
+author: "Michael Meng"
+date: "11/16/2021"
+output: pdf_document
+---
+
+```{r}
+#Multiple Testing
+library(multtest)
+library(data.table)
+
+#setwd
+setwd("~/Desktop/QBS Fall 21'/QBS 181/Final Project/TCGA-PANCAN-HiSeq-801x20531")
+
+######file 1: data frame#######
+dat <- fread("data.csv")
+
+#change NA values to 0
+dat[is.na(dat)] <- 0 
+
+#check dat
+dim(dat)
+#View(dat)
+
+######file 2: data labels####### 
+lab <- fread("labels.csv")
+#View(lab)
+
+#remove first row
+lab <- lab[-1, ]
+
+#add the second column of the "label file" to dat
+labels <- lab[, 2]
+class(labels)
+#labels <- as.vector(lab[, 2])
+#lab[,2]
+dat$labels <- labels
+class(dat)
+```
+$m=20532$
+$\mu_{i, B R C A}$ : mean gene expression value for gene $i$ among BRCA subjects.
+- $\mu_{i, A L L}$ : mean gene expression value for gene $i$ among
+- $\mathrm{ALL}$ subjects.
+- For each gene $i, i=1, \ldots, m$ :
+- $H_{0, i}: \mu_{i, B R C A}=\mu_{i, A L L}$
+- $H_{A, i}: \mu_{i, B R C A} \neq \mu_{i, A L L}$
+- Test each of the $m$ hypotheses using a two-sided t-test.
+
+```{r}
+m = nrow(dat)
+m
+n = ncol(dat)
+n
+brca.sub = dat[which(dat$labels == "BRCA")]
+brca.sub = select(brca.sub, -1)
+brca.sub = select(brca.sub, -20532)
+#data_new <- data[ , c("x1", "x3")]       
+# Properly subset data
+
+View(brca.sub)
+class(brca.sub)
+typeof(brca.sub)
+
+all.sub = dat[which(dat$labels != "BRCA")]
+all.sub = select(all.sub, -1)
+all.sub = select(all.sub, -20532)
+
+View(all.sub)
+class(all.sub)
+typeof(all.sub)
+
+
+dat = select(dat, -1)
+dat = select(dat, -20532)
+View(dat)
+
+p.vals = apply(dat, 1, function(x) {
+  return (t.test(x[unlist(brca.sub)], x[unlist(all.sub)],
+                 alternative="two.sided")$p.value)})
+
+hist(p.vals,breaks=40)
+
+#to get the gene names
+names(p.vals) = dat.gnames[, 2]
+sort(p.vals, decreasing = F)
+
+
+```
+
+
+
