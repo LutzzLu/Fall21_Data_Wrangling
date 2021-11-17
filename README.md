@@ -11,6 +11,8 @@ On the basis of our understanding of the three dimension reduced datasets throug
 
 In the last part, we do interactive visualization and create a package that summarizes all the functions we did in this project.
 
+The documentation is also our pipeline.
+
 ## Prerequisites
 R
 
