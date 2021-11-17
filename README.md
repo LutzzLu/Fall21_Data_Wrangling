@@ -3,6 +3,9 @@
 ## Describtion
 
 ## Prerequisites
+R
+
+R.Studio
 
 ## Installation
 
