@@ -8,8 +8,6 @@
 
 ## Contributing
 
-## License
-
 ## Citation
 
 ## Contact
