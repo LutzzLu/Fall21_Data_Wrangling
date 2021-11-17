@@ -1,4 +1,4 @@
-# data_wrangling Genetics
+# data wrangling Genetics
 
 ## Describtion
 
