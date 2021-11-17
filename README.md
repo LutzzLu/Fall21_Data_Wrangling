@@ -1,7 +1,7 @@
 # data wrangling Genetics
 
 ## Describtion
-
+In this project, we have the types of tumors as labels and gene data with the name of each RNA sequence. 
 
 ## Prerequisites
 R
